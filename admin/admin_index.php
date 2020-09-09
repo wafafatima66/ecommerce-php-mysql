@@ -4,32 +4,57 @@
 ?>
 
 
-<?php 
-// Script Error Reporting
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+<?php require "delete_inventory.php";
+//adding product
 ?>
-
 
 <?php require "add_inventory.php";
 //adding product
 ?>
 
+
 <?php require "inventory_list.php";
 //showing list of products
 ?>
-
 
 <?php require "header_admin.php";
 //adding header section 
 ?>
 
 <?php
-//message showing when getting error or success 
+//message showing when product added
 if(isset($_GET['success'])){
     if($_GET['success']=="newproductadded"){
         echo'<p class="alert alert-success h6">Product Added</p>';
     }
+}
+
+//alert to show when whether to delete item or not
+if (isset($_GET['deleteid'])) {
+	echo '<p class="alert alert-danger">Do you really want to delete product with ID of ' . $_GET['deleteid'] .'? <a href="delete_inventory.php?yesdelete=' . $_GET['deleteid'] . '">Yes</a> | <a href="admin_index.php">No</a></p>';
+	exit();
+}
+
+//alert to show when item is deleted
+if (isset($_GET['itemdeleted'])) {
+    echo '<p class="alert alert-success">Item Deleted</p>';
+    exit();  
+}
+
+//alert to show when item is not deleted
+if (isset($_GET['itemnotdeleted'])) {
+    echo '<p class="alert alert-success">Item not Deleted</p>';
+    exit();  
+}
+
+if (isset($_GET['updated'])) {
+    echo '<p class="alert alert-success">Item Updated</p>';
+    exit();  
+}
+
+if (isset($_GET['notupdated'])) {
+    echo '<p class="alert alert-success">Item not updated</p>';
+    exit();  
 }
 ?>
        
@@ -37,8 +62,11 @@ if(isset($_GET['success'])){
         <a name="inventoryTop" id="inventoryTop"></a> <!--anchor to specify scroll up-->
         <div align="right" style="margin:32px;"><a href="admin_index.php#inventoryForm">+ Add New Inventory Item</a></div> <!--button to scroll down to add inventory-->
 
+        <hr />
+
         <!--inventory list section-->
             <h1 class="text-center" >Welcome Admin</h1>
+            <hr />
                <div align="left" style="margin-left:24px;">
                   <h3 class="m-5" >Inventory list</h3>
                     <table class="table table-sm table-bordered">
@@ -54,7 +82,6 @@ if(isset($_GET['success'])){
                              <?php echo $product_list; ?>
                      </table>
                  </div>
-
          <!--inventory add section-->
           <a name="inventoryForm" id="inventoryForm"></a> <!--anchor to specify scroll down-->
 

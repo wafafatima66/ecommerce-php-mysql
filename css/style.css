@@ -104,6 +104,7 @@ font-family: "Lato", sans-serif;
 
 .products {
     padding: 4rem 0;
+    
   }
   .section-title h2 {
     text-align: center;
@@ -124,47 +125,9 @@ font-family: "Lato", sans-serif;
   .img-container {
     position: relative;
     overflow: hidden;
+   
   }
-  .bag-btn {
-    position: absolute;
-    top: 70%;
-    right: 0;
-    background: var(--primaryColor);
-    border: none;
-    text-transform: uppercase;
-    padding: 0.5rem 0.75rem;
-    letter-spacing: var(--mainSpacing);
-    font-weight: bold;
-    transition: var(--mainTransition);
-    transform: translateX(101%);
-    cursor: pointer;
-  }
-  .bag-btn:hover {
-    color: var(--mainWhite);
-  }
-  .eye-btn {
-    position: absolute;
-    top: 70%;
-    left: 0;
-    background: var(--primaryColor);
-    border: none;
-    text-transform: uppercase;
-    padding: 0.5rem 0.75rem;
-    letter-spacing: var(--mainSpacing);
-    font-weight: bold;
-    transition: var(--mainTransition);
-    transform: translateX(101%);
-    cursor: pointer;
-  }
-  .eye-btn:hover {
-    color: var(--mainWhite);
-  }
-  .fa-shopping-cart {
-    margin-right: 0.5rem;
-  }
-  .img-container:hover .bag-btn {
-    transform: translateX(0);
-  }
+  
   .product-img {
     display: block;
     width: 100%;
@@ -199,21 +162,9 @@ font-family: "Lato", sans-serif;
 
   /*----------------product model styling ----------*/
 
-  /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
+  .modal-title h5{
+    text-transform: uppercase;
+  }
 
 
   /*----------------end product model styling ----------*/

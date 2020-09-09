@@ -13,8 +13,8 @@ $username = preg_replace('#[^A-Za-z0-9]#i', '', $_SESSION["username"]); // filte
 $password = preg_replace('#[^A-Za-z0-9]#i', '', $_SESSION["password"]); // filter everything but numbers and letters
 
 // Run mySQL query to be sure that this person is an admin and that their password session var equals the database information
-// Connect to the MySQL database  
 
+// Connect to the MySQL database  
 include "../scripts/connect.php"; 
 
 $sql = "SELECT * FROM admin WHERE id='$usernameID' AND username='$username' AND password='$password' LIMIT 1"; // query the person
@@ -27,4 +27,10 @@ if ($existCount == 0) { // evaluate the count
 	 echo "Your login session data is not on record in the database.";
      exit();
 }
+?>
+
+<?php 
+// Script Error Reporting
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 ?>

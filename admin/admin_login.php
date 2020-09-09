@@ -1,3 +1,15 @@
+<?php
+if(isset($_GET['error'])){
+    if($_GET['error']=="wrongpasswordorwronguser"){
+        echo'<p class="alert alert-danger h6">Wrong password or username</p>';
+    }
+    if($_GET['error']=="nouser"){
+        echo'<p class="alert alert-danger h6">No such User</p>';
+    }
+}
+
+?>
+
 <?php 
 // going to index admin page on getting username name 
 session_start();
@@ -31,14 +43,15 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 		 header("location: admin_index.php");
          exit();
     } else {
-        header("Location:../index.php?error=wrongpasswordorwronguser");
+        header("Location:../admin_login.php?error=wrongpasswordorwronguser");
         exit();
 	}
 }
 ?>
 
-//adding header section 
+
 <?php
+//adding header section 
 require "header_admin.php";
 ?>
 
