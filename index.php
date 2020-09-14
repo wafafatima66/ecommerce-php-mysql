@@ -7,7 +7,6 @@ include "scripts/connect.php"; // Connect to the MySQL database
 ?>
 
 <?php
- 
 $status="";
 
 
@@ -56,7 +55,8 @@ if (isset($_POST['id']) && $_POST['id']!=" ")
                 'product_name'=>$product_name,
                 'id'=>$id,
                 'price'=>$price,
-                'quantity'=>1)
+                'quantity' =>$quantity
+               )
             );
 
         if(!empty($_SESSION["shopping_cart"]))
@@ -226,12 +226,10 @@ mysqli_close($conn);
                                         <h5>$ <?php echo $product["price"]; ?></h5>
                                         <span class="remove-item" ><a href="index.php?action=delete&id=<?php echo $product["id"]; ?>">Remove</a></span>
                                     </div>
-                                    <div>      
-                                        <form method="post" action="index.php?change">
-                                        <i class="fas fa-chevron-up" type="submit" onclick="quantity_up()"> </i>
-                                        <p class="item-amount"  ><input type="text" value="1" id="quantity"  class="form-control form-control-sm " onchange="this.form.submit()"/></p>
-                                        <i class="fas fa-chevron-down" type="submit" onclick="quantity_down()" ></i>
-                                        </form>
+                                    <div>    
+                                        <i class="fas fa-chevron-up" > </i>  
+                                        <p class="item-amount"> <?php echo $product["quantity"] ?></p>
+                                        <i class="fas fa-chevron-down" ></i>
                                     </div>
                                 </div> 
                             <!--end of cart item -->
